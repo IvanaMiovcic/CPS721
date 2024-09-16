@@ -20,19 +20,19 @@
 
 %%%%%% QUERY 1: Does Ada Lovelace live in San Francisco?
 
-lives(ada, sanfrancisco).
+lives(ada_lovelace, sanfrancisco).
 
 %%%%%% QUERY 2: What is the balance of Alan Turing's account with CIBC?
 
-hasAccount(alan, cibc, X). 
+hasAccount(alan_turing, cibc, X). 
 
 %%%%%% QUERY 3: Does anyone have an account at both BMO and Scotiabank, and if so, who is it?
 
-hasAccount(X, bmo, Y), hasAccount(X, scotiabank, Z).
+hasAccount(X, bmo, _), hasAccount(X, scotiabank, _).
 
 %%%%%% QUERY 4: Is there a person with an account at Wells Fargo that does not live in New York?
 
-hasAccount(X, wellsfargo, Y), not lives(X, newyork).
+hasAccount(X, wells_fargo, _), not lives(X, newyork).
 
 %%%%%% QUERY 5: Does anyone who opened an account with CIBC in April 2018 have more than 5000 in their CIBC account?
 
@@ -40,11 +40,11 @@ hasAccount(X, cibc, Y), created(X, cibc, 4, 2018), Y >= 5000.
 
 %%%%%% QUERY 6: Does any bank have more than one person who opened an account in January 2024?
 
-created(X, Y, 1, 2024), created(Z, Y, 1, 2024), X \= Z.
+created(X, Y, 1, 2024), created(Z, Y, 1, 2024), not X = Z.
 
 %%%%%% QUERY 7: Did any person living outside of Winnipeg open more than one account in the same year?
 
-created(X, A, B, Y), created(X, A, B, Z), Y = Z,  not lives(X, winnipeg).
+created(X, _, _, Y), created(X, _, _, Z), Y = Z,  not lives(X, winnipeg).
 
 %%%%%% QUERY 8: Is there a month in 2017 in which no one opened an account at the National Bank of Canada?
 
