@@ -43,8 +43,7 @@ hasAccount(X, cibc, Y), created(X, cibc, 4, 2018), Y >= 5000.
 created(X, Y, 1, 2024), created(Z, Y, 1, 2024), not X = Z.
 
 %%%%%% QUERY 7: Did any person living outside of Winnipeg open more than one account in the same year?
-
-created(X, _, _, Y), created(X, _, _, Z), Y = Z,  not lives(X, winnipeg).
+created(X, J, _, Y), created(X, I, _, Z), Y = Z,  not lives(X, winnipeg), not J = I.
 
 %%%%%% QUERY 8: Is there a month in 2017 in which no one opened an account at the National Bank of Canada?
 
