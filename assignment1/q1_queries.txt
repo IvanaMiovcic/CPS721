@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME:Ivana Miovcic 
-%%%%% NAME:Mishelle Bitman
-%%%%% NAME:Daniel Persaud
+%%%%% NAME: Ivana Miovcic 
+%%%%% NAME: Mishelle Bitman
+%%%%% NAME: Daniel Persaud
 %
 % Add your answer queries below. Use the following format.
 % 
@@ -56,8 +56,7 @@ created(X, _, _, Y1), created(X, _, _, Y2), created(X, _, _, Y3), Y1 is Y2 - 1, 
 created(X, bmo, M, Y), not (created(A, bmo, M2, Y2), Y2 < Y), not (created(B, bmo, M3, Y), M3 < M, not X = B).
 
 %%%%%% QUERY 11: Who has the largest account created at CIBC in 2010 or later, of anyone who lives in Toronto?
-hasAccount(X,cibc,Y), not (hasAccount(X1,cibc, Y2), Y2 > Y), created(X, cibc, _, Year), Year >= 2010, lives(X, toronto).
-%%%%% INTERACTION
+lives(X, toronto), created(X, cibc, _, Year), Year >= 2010, hasAccount(X, cibc, Sum), not (lives(X1, toronto), created(X1, cibc, _, Year1), Year1 >=2010, hasAccount(X1, cibc, Sum2), Sum2 > Sum) %%%%% INTERACTION
 %
 % Add your interaction below.
 % 
