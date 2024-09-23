@@ -32,11 +32,11 @@ hasAccount(X, bmo, Y), hasAccount(X, scotiabank, Y2).
 
 %%%%%% QUERY 4: Is there a person with an account at Wells Fargo that does not live in New York?
 
-hasAccount(X, wells_fargo, _), not lives(X, newyork).
+hasAccount(X, wells_fargo, Y), not lives(X, newyork).
 
 %%%%%% QUERY 5: Does anyone who opened an account with CIBC in April 2018 have more than 5000 in their CIBC account?
 
-hasAccount(X, cibc, Y), created(X, cibc, 4, 2018), Y >= 5000.
+hasAccount(X, cibc, Y), created(X, cibc, 4, 2018), Y > 5000.
 
 %%%%%% QUERY 6: Does any bank have more than one person who opened an account in January 2024?
 
@@ -57,6 +57,7 @@ created(X, bmo, M, Y), not (created(A, bmo, M2, Y2), Y2 < Y), not (created(B, bm
 
 %%%%%% QUERY 11: Who has the largest account created at CIBC in 2010 or later, of anyone who lives in Toronto?
 lives(X, toronto), created(X, cibc, M1, Y1), Y1 >= 2010, hasAccount(X, cibc, Sum), not (lives(X1, toronto), created(X1, cibc, M2, Y2), Y2 >= 2010, hasAccount(X1, cibc, Sum2), Sum2 > Sum).
+
 %%%%% INTERACTION
 %
 % Add your interaction below.
@@ -67,6 +68,7 @@ Yes (0.00s cpu)
 ?- hasAccount(alan_turing, cibc, X).
 X = 9500
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
 
 ?- hasAccount(X, bmo, Y), hasAccount(X, scotiabank, Y2).
 X = grace_hopper
@@ -77,19 +79,22 @@ X = bill_gates
 Y = 15000
 Y2 = 4000
 Yes (0.04s cpu, solution 2, maybe more)
+No (0.04s cpu)
 
 ?- hasAccount(X, wells_fargo, Y), not lives(X, newyork).
 X = elon_musk
 Y = 100000
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
 
-?- hasAccount(X, cibc, Y), created(X, cibc, 4, 2018), Y >= 5000.
+?- hasAccount(X, cibc, Y), created(X, cibc, 4, 2018), Y > 5000.
 X = alan_turing
 Y = 9500
 Yes (0.00s cpu, solution 1, maybe more)
 X = neil_armstrong
 Y = 6000
 Yes (0.03s cpu, solution 2, maybe more)
+No (0.04s cpu)
 
 ?- created(X, Y, 1, 2024), created(Z, Y, 1, 2024), not X = Z.
 X = ada_lovelace
@@ -100,6 +105,7 @@ X = elon_musk
 Y = td
 Z = ada_lovelace
 Yes (0.01s cpu, solution 2, maybe more)
+No (0.06s cpu)
 
 ?- created(X, Bank1, M1, Y1), created(X, Bank2, M2, Y2), Y1 = Y2, not lives(X, winnipeg), not Bank1 = Bank2.
 X = alan_turing
@@ -157,6 +163,7 @@ Yes (0.18s cpu, solution 6, maybe more)
 Y = 11
 X = X
 Yes (0.23s cpu, solution 7, maybe more)
+No (0.24s cpu)
 
 ?- created(X, Bank1, M1, Y1), created(X, Bank2, M2, Y2), created(X, Bank3, M3, Y3), Y1 is Y2 - 1, Y2 is Y3 - 1.
 X = bill_gates
@@ -181,6 +188,7 @@ Bank3 = scotiabank
 M3 = 8
 Y3 = 2023
 Yes (0.02s cpu, solution 2, maybe more)
+No (0.06s cpu)
 
 ?- created(X, bmo, M, Y), not (created(A, bmo, M2, Y2), Y2 < Y), not (created(B, bmo, M3, Y), M3 < M, not X = B).
 X = grace_hopper
@@ -192,14 +200,16 @@ Y2 = Y2
 B = B
 M3 = M3
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
 
 ?- lives(X, toronto), created(X, cibc, M1, Y1), Y1 >= 2010, hasAccount(X, cibc, Sum), not (lives(X1, toronto), created(X1, cibc, M2, Y2), Y2 >= 2010, hasAccount(X1, cibc, Sum2), Sum2 > Sum).
-X = mishelle
-M1 = 10
-Y1 = 2010
-Sum = 50000
+X = steve_jobs
+M1 = 2
+Y1 = 2019
+Sum = 3000
 X1 = X1
 M2 = M2
 Y2 = Y2
 Sum2 = Sum2
 Yes (0.00s cpu)
+No (0.02s cpu)
