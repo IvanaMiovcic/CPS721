@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME:Ivana Miovcic 
-%%%%% NAME:Mishelle Bitman
-%%%%% NAME:Daniel Persaud
+%%%%% NAME: Ivana Miovcic 
+%%%%% NAME: Mishelle Bitman
+%%%%% NAME: Daniel Persaud
 %
 % Add the required rules in the corresponding sections. 
 % If you put the rules in the wrong sections, you will lose marks.
