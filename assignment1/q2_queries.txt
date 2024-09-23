@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Ivana Miovcic 
+%%%%% NAME: Mishelle Bitman
+%%%%% NAME: Daniel Persaud
 %
 % Add your queries below. Please use the following format
 % 
@@ -18,52 +18,53 @@
 % Don't forget to end queries with a period.
 
 %%%%%% QUERY 1
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Mishelle's BMO subtotal
+subtotal(mishelle, bmo, X).
 
 
 %%%%%% QUERY 2
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Mishelle's CIBC subtotal
+subtotal(mishelle, cibc, X).
 
 
 %%%%%% QUERY 3
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Ivana's CIBC accrued interest
+accruedInterest(ivana, cibc, I).
 
 
 %%%%%% QUERY 4
-% EXPLANATION: 
+% EXPLANATION: Calculate Ivana's BMO accrued interest
+accruedInterest(ivana, bmo, I).
 
 
 
 %%%%%% QUERY 5
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Daniel's BMO accrued penalty
+accruedPenalty(daniel, bmo, P).
 
 
 %%%%%% QUERY 6
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Daniel's CIBC accrued penalty
+accruedPenalty(daniel, cibc, P).
 
 
 %%%%%% QUERY 7
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Mishelle's end of month balance in BMO
+endOfMonthBalance(mishelle, bmo, Balance).
 
 
 %%%%%% QUERY 8
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Mishelle's end of month balance in CIBC
+endOfMonthBalance(mishelle, cibc, Balance).
 
 
 %%%%%% QUERY 9
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Mishelle's total end of month balance
+endOfMonthBalance(mishelle, Balance).
 
 %%%%%% QUERY 10
-% EXPLANATION: 
-
+% EXPLANATION: Calculate Ivana's total end of month balance
+endOfMonthBalance(ivana, Balance).
 
 
 %%%%%% YOU MAY CHOOSE TO ADD MORE THAN 10 QUERIES HERE
@@ -74,3 +75,42 @@
 %
 % Add your interaction below.
 % 
+?- subtotal(mishelle, bmo, X).
+X = 1500
+Yes (0.00s cpu)
+
+?- subtotal(mishelle, cibc, X).
+X = 500
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- accruedInterest(ivana, cibc, I).
+I = 7.5
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- accruedInterest(ivana, bmo, I).
+I = 0
+Yes (0.00s cpu)
+
+?- accruedPenalty(daniel, bmo, I).
+I = 100
+Yes (0.00s cpu)
+
+?- accruedPenalty(daniel, cibc, I).
+I = 50
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- endOfMonthBalance(mishelle, cibc, Balance).
+Balance = 500
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- endOfMonthBalance(mishelle, bmo, Balance).
+Balance = 1485.0
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- endOfMonthBalance(mishelle, Balance).
+Balance = 1985.0
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- endOfMonthBalance(ivana, Balance).
+Balance = 1687.5
+Yes (0.00s cpu, solution 1, maybe more)
