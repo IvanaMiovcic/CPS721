@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Ivana Miovcic 
+%%%%% NAME: Mishelle Bitman
+%%%%% NAME: Daniel Persaud
 %
 % Add the required rules in the corresponding sections. 
 % If you put the rules in the wrong sections, you will lose marks.
@@ -35,8 +35,9 @@ pathClear(r5, r6).
 %%%%% You may also define helper predicates in this section
 %%%%% DO NOT PUT ATOMIC FACTS for robot, hasBall, or pathClear below.
 
-canPass(R1, R2, M) :- pathClear(R1, R2), hasBall(R1), robot(R2), M >= 1.
+canPass(R1, R2, M) :- pathClear(R1, R2), robot(R1), robot(R2), M >= 1.
 canPass(R1, R2, M) :- pathClear(R1, Y), canPass(Y, R2, M - 1), M >= 1.
+canPass(R1, R2, M) :- R1 = R2, pathClear(R1, Y), robot(Y), robot(R1), M >= 2.  
 
 canScore(R, M) :- hasBall(R), pathClear(R, net), M >= 1.
 canScore(R, M) :- hasBall(Y), canPass(Y, R, M - 1), pathClear(R, net), M >= 1. 
