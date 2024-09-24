@@ -141,6 +141,7 @@ Bank2 = cibc
 M2 = 4
 Y2 = 2018
 Yes (0.05s cpu, solution 4, maybe more)
+No (0.02s cpu)
 
 ?- month(Y), not created(X, national_bank_of_canada, Y, 2017).
 Y = 1
