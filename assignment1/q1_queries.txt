@@ -201,7 +201,6 @@ Y2 = Y2
 B = B
 M3 = M3
 Yes (0.00s cpu, solution 1, maybe more)
-No (0.02s cpu)
 
 ?- lives(X, toronto), created(X, cibc, M1, Y1), Y1 >= 2010, hasAccount(X, cibc, Sum), not (lives(X1, toronto), created(X1, cibc, M2, Y2), Y2 >= 2010, hasAccount(X1, cibc, Sum2), Sum2 > Sum).
 X = steve_jobs
