@@ -18,51 +18,59 @@
 % Don't forget to end queries with a period.
 
 %%%%%% QUERY 1
-% EXPLANATION: 
+% EXPLANATION: Test a simple pass between r3 and r1 requiring a single move
+canPass(r3, r1, 1).
 
 
 
 %%%%%% QUERY 2
-% EXPLANATION: 
-
+% EXPLANATION: Test an indirect pass between r2 and r5 requiring two moves
+canPass(r2, r5, 2).
 
 
 %%%%%% QUERY 3
-% EXPLANATION: 
+% EXPLANATION: Test an indirect pass between r3 and r6 requiring four moves
+canPass(r3, r6, 4).
 
 
 
 %%%%%% QUERY 4
-% EXPLANATION: 
+% EXPLANATION: Test a pass with the same robot r1 as source and destination
+canPass(r1, r1, 2).
 
 
 
 %%%%%% QUERY 5
-% EXPLANATION: 
+% EXPLANATION: Test a pass between a robot r1 and the net 
+canPass(r1, net, 1).
 
 
 
 %%%%%% QUERY 6
-% EXPLANATION: 
+% EXPLANATION: Check if r1 can score in one move
+canScore(r1, 1).
 
 
 
 %%%%%% QUERY 7
-% EXPLANATION: 
+% EXPLANATION: Check if r3 can score in two moves which is one extra move then it needs
+canScore(r3,2).
 
 
 
 %%%%%% QUERY 8
-% EXPLANATION: 
-
+% EXPLANATION: Confirm a pass with too little moves will fail in this case r4 to r1
+canPass(r4, r1, 1).
 
 
 %%%%%% QUERY 9
-% EXPLANATION: 
+% EXPLANATION: Test that r1 cannot score given too little moves
+canScore(r1, 0).
 
 
 %%%%%% QUERY 10
-% EXPLANATION: 
+% EXPLANATION: Check if any robot can score in 3 moves 
+canScore(R, 3).
 
 
 
