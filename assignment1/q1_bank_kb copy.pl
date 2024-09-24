@@ -41,6 +41,7 @@ hasAccount(steve_jobs, cibc, 3000).
 hasAccount(alan_turing, rbc, 9000).
 hasAccount(margaret_hamilton, national_bank_of_canada, 2000).
 hasAccount(justin_trudeau, national_bank_of_canada, 10000).
+hasAccount(mishelle, cibc, 50000).
 
 lives(ada_lovelace, sanfrancisco).
 lives(alan_turing, toronto).
@@ -52,6 +53,7 @@ lives(warren_buffet, newyork).
 lives(bill_gates, vancouver).
 lives(justin_trudeau, ottawa).
 lives(steve_jobs, toronto).
+lives(mishelle, toronto).
 
 created(ada_lovelace, td, 1, 2024).
 created(alan_turing, cibc, 4, 2018).
@@ -75,8 +77,9 @@ created(alan_turing, rbc, 11, 2018).
 created(margaret_hamilton, national_bank_of_canada, 2, 2017).
 created(justin_trudeau, national_bank_of_canada, 12, 2017).
 created(idk, bmo, 12, 2021).
-created(Amirali, bmo, 3, 2021).
+created(amirali, bmo, 3, 2021).
 created(grace_hopper, bmo, 4, 2021).
+created(mishelle, cibc, 10, 2010).
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
