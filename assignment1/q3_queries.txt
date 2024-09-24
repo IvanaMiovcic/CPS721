@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Ivana Miovcic 
+%%%%% NAME: Mishelle Bitman
+%%%%% NAME: Daniel Persaud
 %
 % Add your queries below. Please use the following format
 % 
@@ -29,8 +29,8 @@ canPass(r2, r5, 2).
 
 
 %%%%%% QUERY 3
-% EXPLANATION: Test an indirect pass between r3 and r6 requiring four moves
-canPass(r3, r6, 4).
+% EXPLANATION: Test an indirect pass between r3 and r6 requiring three moves
+canPass(r3, r6, 3).
 
 
 
@@ -64,14 +64,17 @@ canPass(r4, r1, 1).
 
 
 %%%%%% QUERY 9
-% EXPLANATION: Test that r1 cannot score given too little moves
-canScore(r1, 0).
+% EXPLANATION: Test for a symmetric pass between robots r2 and r3
+canPass(r2, r3, 1).
 
 
 %%%%%% QUERY 10
 % EXPLANATION: Check if any robot can score in 3 moves 
 canScore(R, 3).
 
+%%%%%% QUERY 11
+% EXPLANATION: Check if a robot r2 can score in 3 moves (confirms that a robot can only score if it is directly connected to net)
+canScore(r2, 3).
 
 
 %%%%%% YOU MAY CHOOSE TO ADD MORE THAN 10 QUERIES HERE
@@ -82,3 +85,57 @@ canScore(R, 3).
 %
 % Add your interaction below.
 % 
+?- canPass(r3, r1, 1).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
+
+?- canPass(r2, r5, 2).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+?- canPass(r3, r6, 3).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.07s cpu)
+
+?- canPass(r1, r1, 2).
+Yes (0.00s cpu, solution 1, maybe more)
+Yes (0.03s cpu, solution 2, maybe more)
+Yes (0.03s cpu, solution 3, maybe more)
+No (0.04s cpu)
+
+?- canPass(r1, net, 1).
+No (0.00s cpu)
+
+?- canScore(r1, 1).
+No (0.00s cpu)
+
+?- canScore(r3, 2).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+?- canPass(r4, r1, 1).
+No (0.00s cpu)
+
+?- canPass(r2, r3, 1).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+?- canScore(R, 3).
+R = r3
+Yes (0.00s cpu, solution 1, maybe more)
+R = r1
+Yes (0.01s cpu, solution 2, maybe more)
+R = r4
+Yes (0.02s cpu, solution 3, maybe more)
+R = r1
+Yes (0.02s cpu, solution 4, maybe more)
+R = r3
+Yes (0.03s cpu, solution 5, maybe more)
+R = r3
+Yes (0.03s cpu, solution 6, maybe more)
+R = r3
+Yes (0.04s cpu, solution 7, maybe more)
+No (0.04s cpu)
+
+?- canScore(r2, 3).
+No (0.00s cpu)
