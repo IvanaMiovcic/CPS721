@@ -82,10 +82,12 @@ Yes (0.00s cpu)
 ?- subtotal(mishelle, cibc, X).
 X = 500
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
 
 ?- accruedInterest(ivana, cibc, I).
 I = 7.5
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
 
 ?- accruedInterest(ivana, bmo, I).
 I = 0
@@ -98,19 +100,29 @@ Yes (0.00s cpu)
 ?- accruedPenalty(daniel, cibc, I).
 I = 50
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
 
 ?- endOfMonthBalance(mishelle, cibc, Balance).
 Balance = 500
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
 
 ?- endOfMonthBalance(mishelle, bmo, Balance).
 Balance = 1485.0
 Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
 
 ?- endOfMonthBalance(mishelle, Balance).
 Balance = 1985.0
 Yes (0.00s cpu, solution 1, maybe more)
+Balance = 1985.0
+Yes (0.02s cpu, solution 2, maybe more)
+No (0.07s cpu)
 
 ?- endOfMonthBalance(ivana, Balance).
 Balance = 1687.5
 Yes (0.00s cpu, solution 1, maybe more)
+Balance = 1687.5
+Yes (0.04s cpu, solution 2, maybe more)
+No (0.05s cpu)
+
