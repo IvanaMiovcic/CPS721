@@ -64,7 +64,6 @@ lives(X, toronto), created(X, cibc, M1, Y1), Y1 >= 2010, hasAccount(X, cibc, Sum
 % 
 ?- lives(ada_lovelace, sanfrancisco).
 Yes (0.00s cpu)
-No (0.02s cpu)
 
 ?- hasAccount(alan_turing, cibc, X).
 X = 9500
@@ -214,4 +213,3 @@ M2 = M2
 Y2 = Y2
 Sum2 = Sum2
 Yes (0.00s cpu)
-No (0.02s cpu)
