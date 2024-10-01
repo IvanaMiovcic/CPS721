@@ -1,0 +1,72 @@
+%%%%%
+%%%%% NAME: Mishelle Bitman, mishelle.bitman@torontomu.ca, 501091629
+%%%%% NAME: Ivana
+%%%%% NAME: Daniel
+%
+
+
+1a) [X, Y | Z] and [a, b, c | [d, e, Y] ]
+[a, b, c | [d, e, Y] ] = [a, b, c, d, e, Y]
+X = a
+Y = b
+Z = [c,d,e,b]
+YES
+
+1b) [q, [A | [r, s] ], t] and [q, [r, [r, s] ] | B]
+[q, [A | [r, s] ], t] = [q, [A ,r, s], t]
+NO
+[r,s] and r,s are not the same.
+
+1c) [ [Cow | [cat, dog] ], bird, bug, chicken ] and [ [ant, [cat, dog] ] | Horse]
+[ [Cow | [cat, dog] ], bird, bug, chicken ] = [ [Cow, cat, dog ], bird, bug, chicken ]
+[ [ant, [cat, dog] ] | Horse] = [ [ant, [cat, dog] ] | Horse]
+Cow = ant
+cat, dog != [cat,dog]
+NO
+
+1d) [1, A, 2 | [A, 3, 4] ] and [B | [2, C | [D | E ] ] ]
+[1, A, 2 | [A, 3, 4] ] =    [1, A, 2, A, 3, 4]
+[B | [2, C | [D | E ] ] ] = [B, 2, C, D | E]
+B = 1
+A = 2
+C = 2
+D = 2
+E = 3,4
+YES
+
+1e) [A|[A|[[A|[[A]]]]]] and [b|C]
+[A|[A|[[A|[[A]]]]]] = [A, A, [A, [A] ] ]
+A = b
+C = [b, [b, [b]]]
+YES
+
+1f) [X | [Y | [ Z | [X] ] ] ] and [all, around, the, world, Y]
+[X | [Y | [ Z | [X] ] ] ] = [X, Y, Z | [X] ] ] ]
+X = all
+Y = around
+Z = the
+X = all != world
+X is a one item list not 2 items.
+NO
+
+1g) [1, 2 | [ X | [ Y, Z | X] ] ] and [Q | [R, S, [], [ [Y] ] ] ]
+[1, 2 | [ X | [ Y, Z | X] ] ] = [1, 2, X, Y, Z | X]
+[Q | [R, S, [], [ [Y] ] ] ] = [Q, R, S, [], [ [Y] ] ]
+Q = 1
+R = 2
+Y = []
+Z = [ [Y] ] = [ [ [ ]]]
+X = []
+S = X = []
+YES
+
+1h) [Lions, [[and], tigers], [and], bears, oh | [[my]] ] and [[I, have], [[A], Bad], Feeling | [About | This] ]
+[Lions, [[and], tigers], [and], bears, oh | [[my]] ] = [Lions, [[and], tigers], [and], bears, oh, [my] ]
+[[I, have], [[A], Bad], Feeling | [About | This] ] = [[I, have], [[A], Bad], Feeling, About | This ]
+Lions = [I, have]
+A = and
+Bad = tigers
+Feeling = [and]
+About = bears
+This = oh, [my]
+YES
