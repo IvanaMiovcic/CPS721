@@ -2,9 +2,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME:Ivana Miovcic 
+%%%%% NAME:Mishelle Bitman
+%%%%% NAME:Daniel Persaud
 %
 % Add the required rules in the corresponding sections. 
 % If you put the rules in the wrong sections, you will lose marks.
@@ -57,3 +57,12 @@ testTree(2,
 
 %%%%% SECTION: preorder
 %%%%% Put your rules for preorder and any helper predicates below
+
+preorder(none, nil).
+preorder(tree(Elem, Left, Middle, Right), L) :- preorder(Left, L1), preorder(Middle, L2), preorder(Right, L3), appendTo(next(Elem, L1), L2, R1), appendTo(R1, L3, L).
+
+appendTo(nil, L, L).
+appendTo(L, nil, L).
+appendTo(nil, nil, nil).
+appendTo(next(H, T), L, next(H, R)) :- appendTo(T, L, R). 
+ 
