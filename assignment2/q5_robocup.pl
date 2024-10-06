@@ -2,9 +2,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Mishelle Bitman
+%%%%% NAME: Ivana Miovcic
+%%%%% NAME: Daniel Persaud
 %
 % Add the required rules in the corresponding sections. 
 % If you put the rules in the wrong sections, you will lose marks.
@@ -24,3 +24,13 @@ pathClear(r4, net).    pathClear(r1, r5).    pathClear(r5, r6).
 
 %%%%% SECTION: robocup
 %%%%% Put your rules for canPass, canScore, and any helper predicates below
+
+canPass(R1, R2, M, [R1, R2]) :- robot(R1), robot(R2), pathClear(R1,R2), M >= 1.
+canPass(R1, R2, M, [R1, R2]) :- robot(R1), robot(R2), pathClear(R2,R1), M >= 1.
+canPass(R1, R2, M, [R1 | PathRest]) :- M >= 2, robot(R1), robot(R2), pathClear(R1,X), canPass(X, R2, M - 1, PathRest), not member(R1, PathRest).
+canPass(R1, R2, M, [R1 | PathRest]) :- M >= 2, robot(R1), robot(R2), pathClear(X,R1), canPass(X, R2, M - 1, PathRest), not member(R1, PathRest).
+
+
+canScore(R1, M, [R1, net]) :- robot(R1), hasBall(R1), pathClear(R1, net), M >= 1.
+canScore(R1, M, P1) :- M >= 3, robot(R1), pathClear(R1, net), hasBall(X), canPass(X, R1, M - 1, P ), append(P, [net], P1).
+canScore(R1, M, P1) :- M >= 3, robot(R1), pathClear(R1, net), hasBall(X), canPass(X, R1, M - 1, P ), append(P, [net], P1).
