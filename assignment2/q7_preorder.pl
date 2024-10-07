@@ -12,8 +12,6 @@
 % You may add additional comments as you choose but DO NOT MODIFY the already included comment lines below
 %
 
-%%%%% TEST TREES
-% Below you can find two test trees. 
 % They have been added using atomic statements of the form testTree(TestNum, Tree).
 % You can use them in a query as follows:
 %
@@ -59,10 +57,8 @@ testTree(2,
 %%%%% Put your rules for preorder and any helper predicates below
 
 preorder(none, nil).
-preorder(tree(Elem, Left, Middle, Right), L) :- preorder(Left, L1), preorder(Middle, L2), preorder(Right, L3), appendTo(next(Elem, L1), L2, R1), appendTo(R1, L3, L).
+preorder(tree3(Elem, Left, Middle, Right), L) :- preorder(Left, L1), preorder(Middle, L2), preorder(Right, L3), appendTo(next(Elem, L1), L2, R1), appendTo(R1, L3, L).
 
 appendTo(nil, L, L).
-appendTo(L, nil, L).
-appendTo(nil, nil, nil).
 appendTo(next(H, T), L, next(H, R)) :- appendTo(T, L, R). 
  
