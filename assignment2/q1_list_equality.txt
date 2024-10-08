@@ -41,11 +41,11 @@ C = [b, [b, [b]]]
 YES
 
 1f) [X | [Y | [ Z | [X] ] ] ] and [all, around, the, world, Y]
-[X | [Y | [ Z | [X] ] ] ] = [X, Y, Z | [X] ] ] ]
+[X | [Y | [ Z | [X] ] ] ] = [X, Y, Z | [X] ]
 X = all
 Y = around
 Z = the
-X = all != world
+X = all != world, in addition, X is a single item. Y = around is unaccounted.
 X is a one item list not 2 items.
 NO
 
@@ -55,7 +55,7 @@ NO
 Q = 1
 R = 2
 Y = []
-Z = [ [Y] ] = [ [ [ ]]]
+Z = [ [Y] ] = [ [ [ ] ] ]
 X = []
 S = X = []
 YES
@@ -68,5 +68,5 @@ A = and
 Bad = tigers
 Feeling = [and]
 About = bears
-This = oh, [my]
+This = [oh, [my]]
 YES
