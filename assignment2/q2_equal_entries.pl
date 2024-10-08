@@ -15,8 +15,7 @@
 %%%%% SECTION: equalEntries
 %%%%% Put your rules for equalEntries below
 
-equalEntries([H], [H], [true]).
-equalEntries([H], [H2], [false]) :- not(H = H2).
+equalEntries([], [], []).
 equalEntries([H | T], [H | T2], [true | T3]) :- equalEntries(T, T2, T3).
 equalEntries([H | T], [H2 | T2], [false | T3]) :- not (H = H2), equalEntries(T, T2, T3).
 
